@@ -1,25 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Melokuhle Maseko | My Portfolio</title>
+    <title>Melokuhle Maseko | Contact</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
 </head>
-<body>
-        <nav class="navbar">
-            <div class="logo"> Melo.Dev</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="skills.html">Skills</a></li>
-                <li><a href="project.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
 
-        <form>
-            
-        </form>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Melo.Dev</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="project.html">Projects</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="section-container contact-page">
+        <h2>Get In Touch</h2>
+        <p class="contact-subtitle">Have a project in mind, an opportunity, or just want to connect? Send me a message.
+        </p>
+
+        <div class="contact-wrapper">
+
+            <!-- Left Column: Contact Information & Socials -->
+            <aside class="contact-info">
+                <h3>Contact Information</h3>
+                <p class="info-desc">Feel free to reach out directly via email or connect with me across my profiles.
+                </p>
+
+                <div class="info-items">
+                    <div class="info-item">
+                        <div class="icon-box">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:melokuhlemaseko05@gmail.com">melokuhlemaseko05@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon-box">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Gauteng, South Africa</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon-box">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div>
+                            <h4>Availability</h4>
+                            <p>Open to Junior Roles & Freelance Work</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-links-wrapper">
+                    <h4>Connect</h4>
+                    <div class="social-icons">
+                        <a href="https://github.com/MiceCodes" target="_blank" rel="noopener noreferrer"
+                            aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/melokuhle-maseko-063a33380" target="_blank" rel="noopener noreferrer"
+                            aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Contact Form -->
+            <section class="contact-form-container">
+                <form action="https://formspree.io/f/mqpppwzr" method="POST" class="contact-form">
+
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Karabo Dlamini" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="dlamini@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Project Inquiry / Opportunity"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Write your message here..."
+                            required></textarea>
+                    </div>
+                    <div id="form-status" class="status-banner" style="display: none;"></div>
+
+                    <button type="submit" class="btn primary-btn submit-btn">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </section>
+
+        </div>
+    </main>
+
 </body>
+
 </html>
