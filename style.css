@@ -1,6 +1,6 @@
 /* styles.css */
 
-/* --- 1. CSS Variables & Reset --- */
+/* --- CSS Variables & Reset --- */
 :root {
     --primary-bg: #f8fafc;       /* Light grayish blue background */
     --surface-bg: #ffffff;       /* Pure white for cards */
@@ -29,7 +29,7 @@ body {
     background-color: var(--primary-bg);
 }
 
-/* --- 2. Typography --- */
+/* --- Typography --- */
 h1, h2, h3 {
     color: var(--dark-element);
     line-height: 1.2;
@@ -58,7 +58,7 @@ h2::after {
     padding: 6rem 2rem;
 }
 
-/* --- 3. Buttons --- */
+/* --- Buttons --- */
 .btn {
     display: inline-block;
     padding: 0.8rem 1.8rem;
@@ -92,13 +92,13 @@ h2::after {
     color: #fff;
 }
 
-/* --- 4. Navigation (Flexbox) --- */
+/* --- Navigation (Flexbox) --- */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
     background: rgba(255, 255, 255, 0.90);
-    backdrop-filter: blur(8px); /* Gives that modern frosted glass look */
+    backdrop-filter: blur(8px); 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -139,7 +139,7 @@ h2::after {
     color: var(--accent-color);
 }
 
-/* --- 5. Hero Section --- */
+/* --- Hero Section --- */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -177,7 +177,381 @@ h2::after {
     color: var(--text-main);
 }
 
-/* --- 6. Skills Section (CSS Grid) --- */
+/* Layout wrapper */
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 2rem;
+}
+
+/* Text container */
+.about-text {
+    flex: 1.2;
+}
+
+.about-text p {
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    color: #333;
+}
+
+/* Image container and crop settings */
+.about-image-wrapper {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+}
+
+.about-img {
+    width: 280px;
+    height: 350px;
+    /* Sets the cropped frame height */
+    object-fit: cover;
+    /* Crops and fills the dimensions without stretching */
+    object-position: top;
+    /* Keeps focus on your face/head */
+    border-radius: 12px;
+    /* Soft rounded corners */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    /* Border for the image */
+    border: 3px solid #5b9bd5;
+}
+
+
+/* Responsive adjustment for mobile screens */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column-reverse;
+        /* Places the image on top or under text cleanly */
+        text-align: center;
+    }
+
+    .about-img {
+        width: 220px;
+        height: 260px;
+    }
+}
+
+/* Container & Section */
+.certifications-section {
+    margin-top: 3rem;
+}
+
+.certifications-section h3 {
+    font-size: 1.4rem;
+    color: #1a202c;
+    margin-bottom: 1.5rem;
+}
+
+/* Grid Layout */
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+/* Card Container */
+.certificate-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.certificate-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Image Wrapper and Image */
+.cert-img-wrapper {
+    width: 100%;
+    height: 190px;
+    background-color: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cert-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Keeps it neatly cropped inside the card */
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.certificate-card:hover .cert-img-wrapper img {
+    transform: scale(1.02);
+}
+
+/* Text Meta Below the Image */
+.cert-details {
+    padding: 1rem;
+}
+
+.cert-details h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 4px;
+}
+
+.cert-details p {
+    font-size: 0.85rem;
+    color: #718096;
+    margin: 0;
+}
+
+/* About Page Bottom CTA */
+.about-cta {
+    margin-top: 4rem;
+    padding: 3rem 2rem;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    text-align: center;
+}
+
+/* Pulsing Status Dot */
+.status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #e6f4ea;
+    color: #137333;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #34a853;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(52, 168, 83, 0.2);
+}
+
+.about-cta h3 {
+    font-size: 1.5rem;
+    color: #1a202c;
+    margin-bottom: 0.6rem;
+}
+
+.about-cta p {
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+/* Button Group */
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 12px 22px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+/* Primary Button */
+.btn-primary {
+    background-color: #5b9bd5;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #4a8ac4;
+    transform: translateY(-2px);
+}
+
+/* Secondary Button */
+.btn-secondary {
+    background-color: #2d3748;
+    color: #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #1a202c;
+    transform: translateY(-2px);
+}
+
+/* Outline Button */
+.btn-outline {
+    background-color: transparent;
+    color: #2d3748;
+    border: 1px solid #cbd5e1;
+}
+
+.btn-outline:hover {
+    background-color: #f1f5f9;
+    border-color: #94a3b8;
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 600px) {
+    .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+/* Skills Page Layout */
+.skills-page {
+    padding: 3rem 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    color: #1a202c;
+    margin-bottom: 0.5rem;
+}
+
+.section-header p {
+    color: #64748b;
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* 4-Card Responsive Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-bottom: 3rem;
+}
+
+/* Skill Card */
+.skill-category-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-category-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+}
+
+.category-header h3 {
+    font-size: 1.1rem;
+    color: #1e293b;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid #5b9bd5;
+    display: inline-block;
+}
+
+/* Badge / Chip Tags */
+.skill-tags {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tags li {
+    background-color: #f1f5f9;
+    color: #334155;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+/* Learning Banner */
+.learning-banner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.learning-icon {
+    font-size: 1.8rem;
+}
+
+.learning-content h4 {
+    font-size: 1rem;
+    color: #1e293b;
+    margin-bottom: 0.3rem;
+}
+
+.learning-content p {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Bottom CTA */
+.skills-cta {
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.skills-cta p {
+    color: #475569;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .learning-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* --- Skills Section (CSS Grid) --- */
 .skills-section {
     background: var(--surface-bg);
 }
@@ -224,7 +598,7 @@ h2::after {
     font-size: 1.2rem;
 }
 
-/* --- 7. Projects Section (CSS Grid) --- */
+/* --- Projects Section (CSS Grid) --- */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -275,8 +649,92 @@ h2::after {
     font-weight: 600;
     letter-spacing: 0.5px;
 }
+/* --- Projects Grid & Cards --- */
+.projects-page {
+    /* Accounts for the fixed navbar height */
+    padding-top: 7rem;
+}
 
-/* --- 8. Contact Section & Footer --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background-color: var(--surface-bg);
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px -5px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent-color);
+}
+
+.project-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--accent-color);
+    margin-bottom: 0.75rem;
+}
+
+.project-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+}
+
+.project-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Tech Badges */
+.tech-stack {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    padding: 0;
+}
+
+.tech-stack li {
+    background-color: var(--primary-bg);
+    border: 1px solid #cbd5e1;
+    color: var(--text-main);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+}
+
+/* Card Button Layout */
+.card-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.card-actions .btn {
+    flex: 1;
+    text-align: center;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+}
+
+/* --- Contact Section & Footer --- */
 .contact-section {
     text-align: center;
     background: var(--surface-bg);
@@ -295,7 +753,7 @@ footer {
     font-size: 0.9rem;
 }
 
-/* --- 9. JavaScript Animation Classes --- */
+/* --- JavaScript Animation Classes --- */
 .hidden-card {
     opacity: 0;
     transform: translateY(40px);
@@ -318,7 +776,7 @@ footer {
     }
 }
 
-/* --- 10. Responsive Design (Mobile) --- */
+/* --- Responsive Design (Mobile) --- */
 @media (max-width: 768px) {
     .nav-links {
         display: none; /* Can be updated to a hamburger menu later */
