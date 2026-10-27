@@ -115,11 +115,32 @@ h2::after {
     border-bottom: 1px solid #e2e8f0;
 }
 
+/* Container holding the image and text */
 .logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--dark-element);
-    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    /* Vertically centers the image with the text */
+    gap: 10px;
+    /* Space between the circular image and the name */
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a202c;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Circular logo styling */
+.logo-img {
+    width: 36px;
+    /* Equal width and height are mandatory for a perfect circle */
+    height: 36px;
+    border-radius: 50%;
+    /* Creates the circular cut */
+    object-fit: cover;
+    /* Prevents the image from squishing */
+    border: 2px solid #5b9bd5;
+    /* Optional accent ring matching your theme */
+    display: block;
 }
 
 .nav-links {
@@ -942,6 +963,85 @@ h2::after {
     border: none;
     font-size: 0.95rem;
     padding: 0.85rem 2rem;
+}
+
+/* Hide the checkbox and the hamburger icon by default on desktop */
+.nav-toggle-checkbox,
+.nav-toggle-icon {
+    display: none;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+
+    /* Show the hamburger icon */
+    .nav-toggle-icon {
+        display: block;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    /* Create the hamburger lines using a span and pseudo-elements */
+    .nav-toggle-icon span,
+    .nav-toggle-icon span::before,
+    .nav-toggle-icon span::after {
+        display: block;
+        background: #333;
+        width: 25px;
+        height: 3px;
+        position: relative;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav-toggle-icon span::before {
+        content: '';
+        position: absolute;
+        bottom: 8px;
+    }
+
+    .nav-toggle-icon span::after {
+        content: '';
+        position: absolute;
+        top: 8px;
+    }
+
+    /* Hide the navigation links by default on mobile */
+    .nav-links {
+        display: none;
+        width: 100%;
+        background: #fff;
+        position: absolute;
+        top: 60px;
+        /* Adjust based on your navbar height */
+        left: 0;
+        flex-direction: column;
+        text-align: center;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    /* When the checkbox is checked, display the navigation links */
+    .nav-toggle-checkbox:checked~.nav-links {
+        display: flex;
+    }
+
+    /* Animate the hamburger icon into an 'X' when checked */
+    .nav-toggle-checkbox:checked~.nav-toggle-icon span {
+        background: transparent;
+    }
+
+    .nav-toggle-checkbox:checked~.nav-toggle-icon span::before {
+        transform: rotate(45deg);
+        bottom: 0;
+    }
+
+    .nav-toggle-checkbox:checked~.nav-toggle-icon span::after {
+        transform: rotate(-45deg);
+        top: 0;
+    }
 }
 
 /* Responsive adjustment for tablets & mobile */

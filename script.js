@@ -58,7 +58,7 @@ const btnIcon = document.getElementById("btn-icon");
 contactForm.addEventListener("submit", async function (event) {
     event.preventDefault(); // Stop default browser redirect
 
-    // 1. Set loading UI state
+    // Set loading UI state
     submitBtn.disabled = true;
     btnText.textContent = "Sending...";
     btnIcon.className = "fa-solid fa-spinner fa-spin";
